@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="manifest" href="./assets/site.webmanifest">
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Montserrat:400,700&display=swap" rel="stylesheet">
+    <title>FitBite</title>
+</head>
+<body>
+    <header id="home">
+        <div class="wrapper">    
+            <h1>FitBite</h1>
+            <p>Get the recipes you need to meet your goals.</p>
+           <button class="anchors" id="startJourney">Start Your Journey</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="inputSection">
+            <div class="wrapper">
+                <form action="" id="inputForm">
+                    
+                    <div class="genderSelect">
+                        <div>
+                            <input type="radio" name="gender" id="male" value="male" checked>
+                            <label class="radioLabel" for="male">Male: <span class="radioButtonStyle"></span></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="gender" id="female" value="female">
+                            <label class="radioLabel" for="female">Female: <span class="radioButtonStyle"></span></label>
+                        </div>
+                    </div>
+                    
+                    <label for="age">Age: </label>
+                    <input type="number" name="age" id="age" min="14" required>
+
+                    <div class="measurementChoice">
+                        <div class="imperialUnits">
+                            <input type="radio" name="measurement" id="imperial" value="imperial" checked>
+                            <label for="imperial" class="radioLabel">Imperial <span class="radioButtonStyle"></span></label>
+                        </div>
+                        <div class="metricUnits">
+                            <input type="radio" name="measurement" id="metric" value="metric">
+                            <label for="metric" class="radioLabel">Metric <span class="radioButtonStyle"></span></label>
+                        </div>
+                    </div>
+
+                    <label for="weight">Weight (in <span id="weightMeasurement">pounds</span>): </label>
+                    <input type="number" name="weight" id="weight" min='0' required>
+                    <label for="height">Height (in <span id="heightMeasurement">inches</span>): </label>
+                    <input type="number" name="height" id="height" min='0'required>
+                    <label for="activityLevel">Please choose your level of activity:</label>
+                    <select name="activityLevel" id="activityLevel">
+                        <option value="1.2">Sedentary (little or no exercise)</option>
+                        <option value="1.375">Lightly Active (light exercise 1-3 days/week)</option>
+                        <option value="1.55">Moderately Active (moderate exercise 3-5 days/week)</option>
+                        <option value="1.725">Very Active (hard exercise 6-7 days a week)</option>
+                        <option value="1.9">Extra Active (very hard exercise or 2x training)</option>
+                    </select>
+                    <fieldset>
+                        <legend>I am looking to...</legend>
+
+                        <div class="weightGoals">
+                            <div>
+                                <input type="radio" name="weightGoals" id="loseWeight" value="-1">
+                                <label for="loseWeight" class="radioLabel">Lose Weight <span class="radioButtonStyle"></span></label>
+                            </div>
+                            <div>
+                                <input type="radio" name="weightGoals" id="maintainWeight" value="0" checked>
+                                <label for="maintainWeight" class="radioLabel">Maintain Weight <span class="radioButtonStyle"></span></label>
+                            </div>
+                            <div>
+                                <input type="radio" name="weightGoals" id="gainWeight" value="1">
+                                <label for="gainWeight" class="radioLabel">Gain Weight <span class="radioButtonStyle"></span></label>
+                            </div>
+                        </div>
+
+                        <select name="weightPoundsPerWeek" id="weightPoundsPerWeek" class="weightPoundsPerWeek hidden">
+                            <option value="250">0.5 pounds per week</option>
+                            <option value="500">1.0 pounds per week</option>
+                            <option value="750">1.5 pounds per week</option>
+                            <option value="1000">2.0 pounds per week</option>
+                        </select>
+                    </fieldset>
+                    <label for="numberOfMealsPerDay">How many meals per day?</label>
+                    <input type="number" name="numberOfMealsPerDay" id="numberOfMealsPerDay" min="3" value="3" required>
+                    <button>Get Calories</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="showCalorieResults hidden" id="showCalorieResults">
+            <div class="wrapper">
+                <h2>Your total daily caloric requirement is: <span id="totalCaloriesPerDay"></span></h2>
+                <h3>Your average calories per meal is: <span id="avgCaloriesPerMeal"></span></h3>
+            </div>
+        </section>
+
+        <section id="recipeSection" class="recipeSection hidden">
+            <div class="wrapper">
+                <form action="" id="getRecipes" class="getRecipes">
+                    <label for="mealType">Choose your Meal</label>
+                    <select name="mealType" id="mealType">
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="snack">Snack</option>
+                    </select>
+
+                    <label for="dietType">Choose your dietary preference</label>
+                    <select name="dietType" id="dietType">
+                        <option value="balanced">Balanced</option>
+                        <option value="high-protein">High-Protein</option>
+                        <option value="high-fiber">High-Fiber</option>
+                        <option value="low-fat">Low-Fat</option>
+                        <option value="low-carb">Low-Carb</option>
+                        <option value="low-sodium">Low-Sodium</option>
+                    </select>
+
+                    <fieldset class="dietRestrictions">
+                        <legend>Choose your Dietary Restrictions</legend>
+
+                        <div>
+                            <input name="restrictions" type="checkbox" id="sugarConcious" value="sugar-conscious">
+                            <label for="sugarConcious" class="checkboxLabel">Sugar Concious <span class="checkboxStyle"></span></label>
+                        </div>
+
+                        <div>
+                            <input name="restrictions" type="checkbox" id="treeNutFree" value="tree-nut-free">
+                            <label for="treeNutFree" class="checkboxLabel">Tree Nut Free <span class="checkboxStyle"></span></label>
+                        </div>
+
+                        <div>
+                            <input name="restrictions" type="checkbox" id="peanutFree" value="peanut-free">
+                            <label for="peanutFree" class="checkboxLabel">Peanut-free <span class="checkboxStyle"></span></label>
+                        </div>
+
+                        <div>
+                            <input name="restrictions" type="checkbox" id="vegan" value="vegan">
+                            <label for="vegan" class="checkboxLabel">Vegan <span class="checkboxStyle"></span></label>
+                        </div>
+                        <div>
+                            <input name="restrictions" type="checkbox" id="vegetarian" value="vegetarian">
+                            <label for="vegetarian" class="checkboxLabel">Vegetarian <span class="checkboxStyle"></span></label>
+                        </div>
+
+                    </fieldset>
+                    <button id="getRecipesButton">Get Recipes</button>
+                </form>
+            </div>
+        </section>
+        
+        <section class="displayRecipesSection hidden">
+            <div class="wrapper">
+                <ul id="listOfRecipes"></ul>
+                <button id="moreRecipes">Show More Recipes</button>
+                <button id="startAgain">Start Again</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Powered by <a href="https://www.edamam.com/" target="_blank">EDAMAM API</a></p>
+    </footer>
+
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+    <script src="./script.js"></script>
+</body>
+</html>

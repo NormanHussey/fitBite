@@ -1,0 +1,547 @@
+html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
+
+html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+
+*, *:before, *:after {box-sizing: inherit}
+
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
+
+:root {
+    --colourPrimaryLight: #a1c084;
+    --colourPrimaryDark: #659157;
+    --colourSecondaryLight: #e05263;
+    --colourSecondaryDark: #e63946;
+    --colourWhiteShade: #f1faee;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--colourWhiteShade);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    max-width: 1280px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    height: 100vh;
+    background-image: linear-gradient(rgba(101,145,87, 0.5), rgba(101,145,87, 0.5)), url('./assets/katie-smith-uQs1802D0CQ-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--colourWhiteShade);
+}
+
+header .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+h1 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 9vmax;
+    text-shadow: 2px 2px 2px black;
+}
+
+.anchors {
+    padding: 20px;
+    font-size: 2vmax;
+    border: none;
+    background-color: var(--colourSecondaryDark);
+    color: var(--colourWhiteShade);
+    border-radius: 12px;
+    box-shadow: 2px 2px black;
+    transition: all .3s;
+}
+
+.anchors:active {
+    box-shadow: none;
+}
+
+.anchors:hover, .anchors:focus {
+    background-color: var(--colourPrimaryDark);
+}
+
+header p {
+    font-size: 2.25vmax;
+    text-align: center;
+}
+
+.inputSection {
+    padding: 5%;
+}
+
+.inputSection form {
+    font-size: 1.5vmax;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+input {
+    margin: 2% 0;
+    padding: 0.5%;
+}
+
+.radioButtonStyle,
+.checkboxStyle {
+    position: relative;
+    right: 0;
+    top: 10%;
+    width: 1.5vmax;
+    height: 1.5vmax;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: white;
+    display: inline-block;
+}
+
+.checkboxStyle {
+    border-radius: 4px;
+}
+
+input[type='radio'],
+input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+input[type='radio']:checked + .radioLabel .radioButtonStyle {
+    background-color: var(--colourSecondaryDark);
+}
+
+input[type='radio']:focus + .radioLabel {
+    color: var(--colourSecondaryLight);
+}
+
+input[type='checkbox']:checked + .checkboxLabel .checkboxStyle {
+    background-color: var(--colourSecondaryDark);
+}
+
+input[type='checkbox']:focus + .checkboxLabel {
+    color: var(--colourSecondaryLight);
+}
+
+
+label,
+legend {
+    font-weight: 700;
+    text-align: center;
+}
+
+.genderSelect, 
+.measurementChoice {
+    margin-bottom: 2%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.genderSelect div, 
+.measurementChoice div  {
+    margin: 0 2%;
+}
+
+select {
+    margin: 2% 0;
+    padding: 1%;
+}
+
+fieldset {
+    border: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+legend {
+    text-align: center;
+    width: 100%;
+    margin: 2% 0;
+}
+
+.weightGoals {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.weightGoals label {
+    font-weight: 400;
+}
+
+fieldset select {
+    padding: 0.5%;
+}
+
+button {
+    background-color: var(--colourSecondaryDark);
+    color: var(--colourWhiteShade);
+    font-size: 2vmax;
+    padding: 2% 4%;
+    border-radius: 12px;
+    box-shadow: 2px 2px black;
+    border: none;
+    transition: all .3s;
+}
+
+button:hover, button:focus {
+    background-color: var(--colourPrimaryDark);
+}
+
+button:active {
+    box-shadow: none;
+}
+
+.showCalorieResults {
+    background-color: white;
+    padding: 5% 0;
+}
+
+.showCalorieResults .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: all .3s;
+}
+
+h2 {
+    font-size: 3.5vmax;
+}
+
+h2, h3 {
+    margin: 3%;
+    text-align: center;
+}
+
+h2 span, h3 span {
+    font-size: 4.5vmax;
+    color: var(--colourSecondaryDark);
+    display: block;
+    width: 100%;
+}
+
+h3 {
+    font-size: 3vmax;
+}
+
+h4 {
+    font-size: 2.5vmax;
+}
+
+.getRecipes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipeSection {
+    padding: 5%;
+}
+
+.recipeSection label {
+    font-size: 1.5vmax;
+}
+
+.recipeSection select {
+    font-size: 1.5vmax;
+    padding: 1vmax;
+    width: 25vw;
+}
+
+ul  {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    width: 46%;
+    margin: 2%;
+
+}
+
+.noResults {
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+}
+
+.recipeImage img {
+    width: 100%;
+    height: auto;
+}
+
+
+.recipeDetails {
+    padding: 5%;
+}
+
+.recipeDetails p {
+    font-size: 1.25vmax;
+    line-height: 1.6;
+}
+
+.dietLabels {
+    font-weight: 700;
+}
+
+.nutrients {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.cautions {
+    color: var(--colourSecondaryDark);
+    font-weight: 700;
+}
+
+.healthLabels {
+    color: var(--colourPrimaryDark);
+    font-weight: 700;
+}
+
+.recipeDetails .anchors {
+    font-size: 1.75vmax;
+    padding: 15px 20px;
+    margin: 2% 0;
+    display: inline-block;
+}
+
+.displayRecipesSection button {
+    margin: 2% 0;
+}
+
+.displayRecipesSection .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dietRestrictions {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+    width: 60%;
+}
+
+.dietRestrictions div {
+    margin: 3%;
+}
+
+.dietRestrictions label {
+    font-size: 1.5vmax;
+    font-weight: 400;
+}
+
+.dietRestrictions legend, .getRecipes label {
+    font-size: 1.75vmax;
+}
+
+.hidden {
+    opacity: 0;
+    display: none;
+}
+
+footer {
+    background-color: var(--colourPrimaryDark);
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    text-align: center;
+    font-size: 1.5vmax;
+    color: white;
+    margin: 0;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover, footer a:focus {
+    color: var(--colourSecondaryDark);
+}
+
+/* Media Queries */
+
+@media (max-width: 875px) {
+
+    .wrapper {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 12vmax;
+    }
+
+    .anchors {
+        font-size: 3vmax;
+    }
+
+    .inputSection form {
+        font-size: 2.5vmax;
+    }
+
+    button {
+        font-size: 3vmax;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+
+    h2,
+    h3 {
+        font-size: 4vmax;
+    }
+
+    h2 span,
+    h3 span {
+        font-size: 5.5vmax;
+    }
+
+    .radioButtonStyle,
+    .checkboxStyle {
+        width: 2vmax;
+        height: 2vmax;
+    }
+
+    .recipeSection label {
+        font-size: 2.5vmax;
+    }
+    
+    .recipeSection select {
+        font-size: 2.5vmax;
+    }
+
+    .dietRestrictions {
+        width: 100%;
+    }
+
+    .dietRestrictions label {
+        font-size: 2.5vmax;
+    }
+    
+    .dietRestrictions legend, .getRecipes label {
+        font-size: 2.5vmax;
+    }
+
+    li {
+        width: 80%;
+    }
+
+    h4 {
+        font-size: 3.5vmax;
+        text-align: center;
+    }
+
+    .recipeDetails {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .recipeDetails p {
+        font-size: 2vmax;
+    }
+
+    .recipeDetails .anchors {
+        font-size: 2.5vmax;
+        padding: 20px 30px;
+        align-self: center;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    input,
+    label,
+    select {
+        margin: 15px 0;
+    }
+
+    select,
+    option {
+        font-size: 2vmax;
+    }
+
+    .weightGoals {
+        flex-direction: column;
+    }
+
+    .weightGoals div {
+        margin: 2% 0;
+    }
+
+    .weightPoundsPerWeek,
+    .weightPoundsPerWeek option {
+        font-size: 2.5vmax;
+    }
+
+    .recipeSection select {
+        width: 50vw;
+    }
+
+    .dietRestrictions {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .recipeDetails p {
+        font-size: 2.5vmax;
+    }
+}
+
+@media (max-width: 425px) {
+    select,
+    option {
+        font-size: 1.75vmax;
+        padding: 5% 0;
+    }
+
+    .getRecipes select,
+    .getRecipes option {
+        font-size: 2vmax;
+    }
+}
